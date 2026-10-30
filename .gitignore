@@ -1,0 +1,26 @@
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environment
+.venv/
+Backend/.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# React
+node_modules/
+frontend/node_modules/
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log

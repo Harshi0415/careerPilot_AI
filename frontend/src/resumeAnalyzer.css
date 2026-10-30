@@ -1,0 +1,421 @@
+
+.resume-analyzer {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 32px;
+  color: #172033;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+.resume-analyzer h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  color: #172033;
+}
+
+.resume-analyzer > p {
+  margin: 0 0 28px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.resume-analyzer h3 {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Analyze Resume / Job Matching tabs */
+.analyzer-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  margin-bottom: 28px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.analyzer-tabs button {
+  flex: 1;
+  min-height: 44px;
+  padding: 10px 16px;
+  color: #64748b;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.analyzer-tabs button:hover {
+  color: #1d4ed8;
+}
+
+.analyzer-tabs button.active {
+  color: #1d4ed8;
+  background: #ffffff;
+  border-color: #dbeafe;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+/* Upload and job description sections */
+.upload-section,
+.job-description-section {
+  margin-bottom: 22px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.upload-section input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  color: #475569;
+  background: #f8fafc;
+  border: 1px dashed #93a9c7;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.upload-section input[type="file"]:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.upload-section p {
+  margin: 12px 0 0;
+  overflow-wrap: anywhere;
+  color: #15803d;
+  font-size: 13px;
+}
+
+/* Job description text area */
+.job-description-section textarea {
+  display: block;
+  width: 100%;
+  min-height: 180px;
+  padding: 14px;
+  resize: vertical;
+  color: #172033;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.7;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-description-section textarea::placeholder {
+  color: #94a3b8;
+}
+
+.job-description-section textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.job-description-section > p {
+  margin: 9px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  text-align: right;
+}
+
+/* Main action button */
+.analyze-button {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin: 8px 0 20px;
+  padding: 13px 20px;
+  color: #ffffff;
+  background: #2563eb;
+  border: 1px solid #2563eb;
+  border-radius: 11px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.analyze-button:hover:not(:disabled) {
+  background: #1d4ed8;
+  box-shadow: 0 5px 14px rgba(37, 99, 235, 0.2);
+  transform: translateY(-1px);
+}
+
+.analyze-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* Error feedback */
+.error-message {
+  margin: 16px 0;
+  padding: 14px 16px;
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Results panel */
+.analysis-results {
+  margin-top: 28px;
+  padding: 24px;
+  background: #f8fafc;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  animation: resumeFadeIn 0.3s ease;
+}
+
+.analysis-results h3 {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.analysis-results pre {
+  margin: 0;
+  color: #334155;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.85;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+@keyframes resumeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 640px) {
+  .resume-analyzer {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .resume-analyzer h2 {
+    font-size: 23px;
+  }
+
+  .analyzer-tabs {
+    gap: 4px;
+  }
+
+  .analyzer-tabs button {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+
+  .upload-section,
+  .job-description-section,
+  .analysis-results {
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .analysis-results {
+    animation: none;
+  }
+}
+
+.resume-dropzone {
+  display: flex;
+  min-height: 190px;
+  padding: 28px 18px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  background: #f8fbff;
+  border: 2px dashed #bfdbfe;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.resume-dropzone:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+.resume-dropzone input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.resume-dropzone input[type="file"]:focus-visible + .upload-symbol {
+  outline: 3px solid #93c5fd;
+  outline-offset: 4px;
+}
+
+.upload-symbol {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  color: #2563eb;
+  background: #dbeafe;
+  border-radius: 14px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.resume-dropzone strong {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: #1e293b;
+  font-size: 14px;
+}
+
+.upload-hint {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.score-card {
+  margin: 20px 0;
+  padding: 24px;
+  border: 1px solid #dfe5f1;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.score-label {
+  color: #5b6475;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.score-value {
+  margin: 10px 0;
+  color: #4338ca;
+  font-size: 42px;
+  font-weight: 750;
+}
+
+.score-value span {
+  color: #7b8495;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.score-card p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.score-card small {
+  display: block;
+  margin-top: 12px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.score-track {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #e8eaf3;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: #635bdb;
+  transition: width 0.4s ease;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.report-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e1e6ef;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.report-card h4 {
+  margin: 0 0 14px;
+  color: #252d40;
+  font-size: 16px;
+}
+
+.report-card ul,
+.report-card ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.report-card li {
+  margin-bottom: 10px;
+  color: #4b5563;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  .report-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .score-card,
+  .report-card {
+    padding: 16px;
+  }
+}
+
+.download-report-button {
+  margin: 16px 0;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 9px;
+  background: #4338ca;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.download-report-button:hover {
+  background: #3730a3;
+}
+
+.download-report-button:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 3px;
+}
