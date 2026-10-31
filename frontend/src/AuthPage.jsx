@@ -60,7 +60,7 @@ export default function AuthPage({
   : { email: cleanEmail, password };
 
       const response = await fetch(
-        `http://localhost:5000${endpoint}`,
+        `https://careerpilot-ai-1-qq4i.onrender.com${endpoint}`,
         {
           method: "POST",
            credentials: "include",
@@ -121,7 +121,7 @@ if (typeof onLoginSuccess === "function") {
         error.message.toLowerCase().includes("fetch")
       ) {
         setMessage(
-          "Cannot connect to Flask. Make sure your backend is running on port 5000."
+          "Unable to connect to the server. Please try again."
         );
       } else {
         setMessage(

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import "./JobPlanner.css";
 
-const API_URL = "http://localhost:5000/api/job-applications";
+const API_URL = "https://careerpilot-ai-1-qq4i.onrender.com/api/job-applications";
 
 const STATUSES = [
   "Applied",

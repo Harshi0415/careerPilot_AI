@@ -10,6 +10,7 @@ import JobPlanner from "./JobPlanner.jsx";
 import Dashboard from "./Dashboard.jsx";
 
 
+const API_BASE_URL = "https://careerpilot-ai-1-qq4i.onrender.com";
 const suggestions = [
   "Create a 30-day job search plan",
   "Prepare me for a Python interview",
@@ -33,7 +34,7 @@ useEffect(() => {
   async function restoreSession() {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/me",
+        `${API_BASE_URL}/api/auth/me`,
         {
           method: "GET",
           credentials: "include",
@@ -80,7 +81,7 @@ useEffect(() => {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/api/chat",
+        `${API_BASE_URL}/api/chat`,
         {
           method: "POST",
           headers: {
@@ -115,7 +116,7 @@ useEffect(() => {
         {
           role: "assistant",
           content:
-            "I couldn't connect to the AI backend. Please check that Flask is running at http://127.0.0.1:5000 and Ollama is available. Details: " +
+            "I couldn't connect to the AI service. Please try again. Details: " +
             error.message,
         },
       ]);
@@ -132,7 +133,7 @@ useEffect(() => {
 async function handleLogout() {
   try {
     const response = await fetch(
-      "http://localhost:5000/api/auth/logout",
+      `${API_BASE_URL}/api/auth/logout`,
       {
         method: "POST",
         credentials: "include",

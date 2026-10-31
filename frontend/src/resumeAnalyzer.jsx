@@ -28,10 +28,11 @@ function ResumeAnalyzer() {
     const formData = new FormData();
     formData.append("resume", file);
 
-    let endpoint = "http://127.0.0.1:5000/api/resume/analyze";
-
+    ///let endpoint = "http://127.0.0.1:5000/api/resume/analyze";
+    let endpoint = "https://careerpilot-ai-1-qq4i.onrender.com/api/resume/analyze";
     if (mode === "match") {
-      endpoint = "http://127.0.0.1:5000/api/resume/match";
+      //endpoint = "http://127.0.0.1:5000/api/resume/match";
+      endpoint = "https://careerpilot-ai-1-qq4i.onrender.com/api/resume/match";
       formData.append("job_description", jobDescription.trim());
     }
 
