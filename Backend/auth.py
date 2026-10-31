@@ -141,7 +141,8 @@ def login():
         }), 200
 
     except Exception:
-        auth_bp.logger.exception("Login failed")
+        #auth_bp.logger.exception("Login failed")
+        current_app.logger.exception("Login failed")
         return jsonify({
             "error": "Unable to log in right now."
         }), 500
