@@ -2,6 +2,8 @@
 import { useState , useEffect  } from "react";
 import "./App.css";
 import ResumeAnalyzer from "./resumeAnalyzer.jsx";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 //import "./components/DepthText.css";
 import LandingPage from "./LandingPage.jsx";
 import AuthPage from "./AuthPage.jsx";
@@ -18,6 +20,9 @@ const suggestions = [
 ];
 
 function App() {
+
+
+
   //const [showLandingPage, setShowLandingPage] = useState(true);
 
   const [messages, setMessages] = useState([]);
@@ -28,6 +33,20 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
   
 const [checkingSession, setCheckingSession] = useState(true);
+
+
+const [theme, setTheme] = useState(
+  () => localStorage.getItem("careerpilot-theme") || "light"
+);
+
+useEffect(() => {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("careerpilot-theme", theme);
+}, [theme]);
+
+function toggleTheme() {
+  setTheme((current) => current === "light" ? "dark" : "light");
+}
 
 
 useEffect(() => {
@@ -306,10 +325,21 @@ if (authPage !== "app") {
             )}
           </div>
 
-          <span className="online-status">
-            <span className="status-dot" />
-            Local environment
-          </span>
+          <div className="topbar-actions">
+  <button
+    className="theme-toggle"
+    onClick={toggleTheme}
+    aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+    title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+  >
+    {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+  </button>
+
+  <span className="online-status">
+    <span className="status-dot" />
+    Local environment
+  </span>
+</div>
         </header>
 
         <nav className="main-navigation">
@@ -382,7 +412,15 @@ if (authPage !== "app") {
                             ? "You"
                             : "CareerPilot AI"}
                         </span>
-                        <p>{message.content}</p>
+                        {message.role === "assistant" ? (
+  <div className="markdown-content">
+    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+      {message.content}
+    </ReactMarkdown>
+  </div>
+) : (
+  <p>{message.content}</p>
+)}
                       </div>
                     </div>
                   ))}
