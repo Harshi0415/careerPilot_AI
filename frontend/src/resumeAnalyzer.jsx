@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import "./ResumeAnalyzer.css";
+import "./resumeAnalyzer.css";
 import jsPDF from "jspdf";
 
 function ResumeAnalyzer() {
