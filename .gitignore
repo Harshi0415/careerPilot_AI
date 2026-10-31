@@ -24,3 +24,5 @@ dist/
 
 # Logs
 *.log
+# Database backups
+*.sql
